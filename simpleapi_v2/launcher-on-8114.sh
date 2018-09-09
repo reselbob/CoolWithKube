@@ -9,3 +9,6 @@ kubectl run simpleapi --image=simpleapi:v2 --port=8114 --image-pull-policy=Never
 kubectl expose deployment simpleapi --type=LoadBalancer
 #try to load the service
 minikube service simpleapi
+
+#rollback the deployment to version 1
+kubectl rollout undo deployment/simpleapi
