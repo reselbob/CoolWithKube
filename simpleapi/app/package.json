@@ -1,0 +1,30 @@
+{
+  "name": "simpleApiApp",
+  "version": "1.0.0",
+  "description": "A simple REST API that can be used for a variety of demonstration purposes",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha test/basic-tests.js",
+    "http-test": "mocha test/http-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reselbob/simpleApi.git"
+  },
+  "keywords": [
+    "demonstration",
+    "simple",
+    "API"
+  ],
+  "author": "Bob Reselman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reselbob/simpleApi/issues"
+  },
+  "homepage": "https://github.com/reselbob/simpleApi#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4"
+  }
+}
