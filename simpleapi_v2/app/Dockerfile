@@ -7,7 +7,7 @@ FROM node:8
 
 # Bundle app source
 #COPY .. /usr/src/app
-COPY .. .
+COPY . .
 RUN npm install
 
 EXPOSE 8113
