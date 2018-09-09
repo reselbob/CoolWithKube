@@ -1,0 +1,32 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mrecho
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mrecho
+  template:
+    metadata:
+      labels:
+        app: mrecho
+    spec:
+      containers:
+        - image: "mrecho:v1"
+          imagePullPolicy: Never
+          name: simpleapi
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+            name: APP_NAME
+            valueFrom:
+              configMapKeyRef:
+              name: mrecho-config
+             # Specify the key associated with the value
+             key: special.how
+
+          ports:
+            -
+              containerPort: 8115
