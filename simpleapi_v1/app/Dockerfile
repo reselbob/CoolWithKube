@@ -1,12 +1,11 @@
 FROM node:8
 
-# Create app directory
-WORKDIR /usr/src/app
+
 
 # Install app dependencies
 
 # Bundle app source
-COPY .. /usr/src/app
+COPY . .
 RUN npm install
 
 EXPOSE 8113
