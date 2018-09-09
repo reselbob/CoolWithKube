@@ -14,13 +14,12 @@ spec:
         app: simpleapi
     spec:
       containers:
-        -
-          env:
-            name: CURRENT_VERSION
-            value: v1
-          image: "simpleapi:v1"
+        - image: "simpleapi:v1"
           imagePullPolicy: Never
           name: simpleapi
+          env:
+            - name: CURRENT_VERSION
+            value: v1
           ports:
             -
               containerPort: 8113
