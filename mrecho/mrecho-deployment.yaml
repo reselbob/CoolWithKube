@@ -14,19 +14,26 @@ spec:
         app: mrecho
     spec:
       containers:
-        - image: "mrecho:v1"
+        -
+          env:
+            -
+              name: CURRENT_VERSION
+              value: v1
+            -
+              name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: APP_NAME
+                  name: mrecho
+            -
+              name: ECHO
+              valueFrom:
+                configMapKeyRef:
+                  key: ECHO
+                  name: mrecho
+          image: "mrecho:v1"
           imagePullPolicy: Never
           name: simpleapi
-          env:
-          - name: CURRENT_VERSION
-            value: v1
-            name: APP_NAME
-            valueFrom:
-              configMapKeyRef:
-              name: mrecho-config
-             # Specify the key associated with the value
-             key: special.how
-
           ports:
             -
               containerPort: 8115
