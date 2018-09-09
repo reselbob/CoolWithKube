@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simpleapi
+spec:
+  selector:
+    matchLabels:
+      app: simpleapi
+  template:
+    metadata:
+      labels:
+        app: simpleapi
+    spec:
+      containers:
+        - image: "simpleapi:v2"
+          imagePullPolicy: Never
+          name: simpleapi
+          env:
+          - name: CURRENT_VERSION
+            value: v2
+          ports:
+            -
+              containerPort: 8113
