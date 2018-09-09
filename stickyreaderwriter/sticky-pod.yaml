@@ -1,0 +1,20 @@
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: stickyreaderwriter
+spec:
+  volumes:
+    - name: sticky-pv-storage
+      persistentVolumeClaim:
+       claimName: sticky-pv-claim
+  containers:
+    - name: stickyreaderwriter
+      image: stickyreaderwriter:v1
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 8112
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/mydata"
+          name: sticky-pv-storage
