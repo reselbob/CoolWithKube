@@ -1,6 +1,6 @@
 const http = require('http');
 let i = 0;
-const port = 8115
+const port = 8115;
 const handleRequest = function(request, response) {
     const appname = process.env.APP_NAME || 'Mr Echo';
     const echostr = process.env.ECHO || 'UNKNOWN';
