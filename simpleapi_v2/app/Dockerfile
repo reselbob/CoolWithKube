@@ -10,5 +10,5 @@ FROM node:8
 COPY . .
 RUN npm install
 
-EXPOSE 8113
+EXPOSE 8114
 CMD [ "node", "app.js" ]

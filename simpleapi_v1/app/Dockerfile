@@ -9,5 +9,5 @@ WORKDIR /usr/src/app
 COPY .. /usr/src/app
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 8113
 CMD [ "node", "app.js" ]
