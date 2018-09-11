@@ -1,5 +1,5 @@
-containerPort: 8130
+containerPort: "8130"
 currentVersion: v1
-scale: 2
-servicePort: 8130
-serviceTargetPort: 8130
+scale: "2"
+servicePort: "8130"
+serviceTargetPort: "8130"
