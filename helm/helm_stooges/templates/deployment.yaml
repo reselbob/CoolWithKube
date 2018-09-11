@@ -20,9 +20,9 @@ spec:
           env:
           - name: CURRENT_VERSION
             value: {{.Values.currentVersion}}
-          ports:
-            -
-              containerPort: {{.Values.containerPort}}
+      ports:
+        -
+          containerPort: {{.Values.containerPort}}
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -45,9 +45,9 @@ spec:
           env:
           - name: CURRENT_VERSION
             value: {{.Values.currentVersion}}
-          ports:
-            -
-              containerPort: {{.Values.containerPort}}
+      ports:
+        -
+          containerPort: {{.Values.containerPort}}
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -70,6 +70,6 @@ spec:
           env:
           - name: CURRENT_VERSION
             value: {{.Values.currentVersion}}
-          ports:
-            -
-              containerPort: {{.Values.containerPort}}
+      ports:
+        -
+          containerPort: {{.Values.containerPort}}
