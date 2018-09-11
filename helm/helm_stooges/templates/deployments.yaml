@@ -1,0 +1,75 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: moe
+spec:
+  replicas: {{.Values.scale}}
+  selector:
+    matchLabels:
+      app: moe
+  template:
+    metadata:
+      labels:
+        app: moe
+    spec:
+      containers:
+        - image: moe:{{.Values.currentVersion}}
+          imagePullPolicy: Never
+          name: moe
+          env:
+          - name: CURRENT_VERSION
+            value: {{.Values.currentVersion}}
+          ports:
+            -
+              containerPort: {{.Values.containerPort}}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: larry
+spec:
+  replicas: {{.Values.scale}}
+  selector:
+    matchLabels:
+      app: larry
+  template:
+    metadata:
+      labels:
+        app: larry
+    spec:
+      containers:
+        - image: larry:{{.Values.currentVersion}}
+          imagePullPolicy: Never
+          name: larry
+          env:
+          - name: CURRENT_VERSION
+            value: {{.Values.currentVersion}}
+          ports:
+            -
+              containerPort: {{.Values.containerPort}}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: curly
+spec:
+  replicas: {{.Values.scale}}
+  selector:
+    matchLabels:
+      app: curly
+  template:
+    metadata:
+      labels:
+        app: curly
+    spec:
+      containers:
+        - image: curly:{{.Values.currentVersion}}
+          imagePullPolicy: Never
+          name: curly
+          env:
+          - name: CURRENT_VERSION
+            value: {{.Values.currentVersion}}
+          ports:
+            -
+              containerPort: {{.Values.containerPort}}
