@@ -2,11 +2,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: simple-ingress
+  name: stooges-ingress
 spec:
   backend:
-    serviceName: test-ingress-node-1
-    servicePort: 8080
+    serviceName: stooges
+    servicePort: 8130
   rules:
   - host:
     http:
@@ -15,11 +15,11 @@ spec:
         backend:
           serviceName: moe
           servicePort: 8130
-      - path: /gg2
+      - path: /larry
         backend:
           serviceName: larry
-          servicePort: 8080
-      - path: /gg2
+          servicePort: 8130
+      - path: /curly
         backend:
-          serviceName: test-ingress-node-2
-          servicePort: 8080
+          serviceName: curly
+          servicePort: 8130
