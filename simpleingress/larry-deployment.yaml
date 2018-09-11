@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: larry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: larry
+  template:
+    metadata:
+      labels:
+        app: larry
+    spec:
+      containers:
+        - image: "larry:v1"
+          imagePullPolicy: Never
+          name: larry
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+          ports:
+            -
+              containerPort: 8130

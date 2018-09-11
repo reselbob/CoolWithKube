@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: curly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: curly
+  template:
+    metadata:
+      labels:
+        app: curly
+    spec:
+      containers:
+        - image: "curly:v1"
+          imagePullPolicy: Never
+          name: curly
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+          ports:
+            -
+              containerPort: 8130
