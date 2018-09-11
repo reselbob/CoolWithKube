@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: stooges-ingress
+  name: stoogesingress
 spec:
   backend:
     serviceName: stooges
