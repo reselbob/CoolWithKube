@@ -6,11 +6,11 @@ metadata:
 spec:
   selector:
     app: moe
-ports:
-  - name: main
-    protocol: TCP
-    port: {{.Values.servicePort}}
-    targetPort: {{.Values.serviceTargetPort}}
+  ports:
+    - name: main
+      protocol: TCP
+      port: {{.Values.servicePort}}
+      targetPort: {{.Values.serviceTargetPort}}
 
 ---
 kind: Service
@@ -20,11 +20,11 @@ metadata:
 spec:
   selector:
     app: larry
-ports:
-  - name: main
-    protocol: TCP
-    port: {{.Values.servicePort}}
-    targetPort: {{.Values.serviceTargetPort}}
+  ports:
+    - name: main
+      protocol: TCP
+      port: {{.Values.servicePort}}
+      targetPort: {{.Values.serviceTargetPort}}
 
 ---
 kind: Service
@@ -34,8 +34,8 @@ metadata:
 spec:
   selector:
     app: curly
-ports:
-  - name: main
-    protocol: TCP
-    port: {{.Values.servicePort}}
-    targetPort: {{.Values.serviceTargetPort}}
+  ports:
+    - name: main
+      protocol: TCP
+      port: {{.Values.servicePort}}
+      targetPort: {{.Values.serviceTargetPort}}
