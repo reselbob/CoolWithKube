@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: stooges-ingress
+spec:
+  backend:
+    serviceName: stooges
+    servicePort: {{.Values.servicePort}}
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /moe
+        backend:
+          serviceName: moe
+          servicePort: {{.Values.servicePort}}

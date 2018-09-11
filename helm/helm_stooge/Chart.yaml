@@ -1,0 +1,6 @@
+name: Stooge Helm
+version: 1.0.0
+description: A simple demonstration of a helm deployment
+maintainers:
+  - name: Bob Reselman
+    twitter: reselbob
