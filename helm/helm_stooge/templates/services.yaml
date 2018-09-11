@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: moe
-ports:
-  - name: main
-    protocol: TCP
-    port: {{.Values.servicePort}}
-    targetPort: {{.Values.serviceTargetPort}}
+  ports:
+    - name: main
+      protocol: TCP
+      port: {{.Values.servicePort}}
+      targetPort: {{.Values.serviceTargetPort}}
