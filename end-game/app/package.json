@@ -1,0 +1,30 @@
+{
+  "name": "feelingTracker",
+  "version": "1.0.0",
+  "description": "A simple REST based web app that can be used demonstration purposes",
+  "main": "app.js",
+  "scripts": {
+    "test": "find ./test -name '*Tests.js' | xargs mocha -R spec",
+    "api-test": "mocha test/apiTests.js"
+  },
+  "repository": "https://bitbucket.org/reselbob01/feelingtracker/",
+  "keywords": [
+    "demonstration",
+    "demo apps",
+    "API"
+  ],
+  "author": "Bob Reselman",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^3.5.0",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "ip": "^1.1.5",
+    "lodash": "^4.17.4",
+    "mocha": "^5.2.0",
+    "nightmare": "^3.0.1",
+    "supertest": "^3.1.0",
+    "xvfb": "^0.2.3"
+  }
+}

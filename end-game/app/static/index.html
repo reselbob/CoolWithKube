@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<title>Feelings Tracker Version 1.2</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+    td {
+        padding: 10px;
+    }
+    p {
+        color: blue;
+    }
+</style>
+
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        $scope.appState = 'login';
+        $scope.feeling = '';
+        $scope.formFillStartTime;
+
+        $scope.setFormFill = function(){
+            if(!$scope.formFillStartTime)$scope.formFillStartTime = new Date();
+        };
+
+        $http.get("/feelings").then(function (response) {
+            $scope.feelings = response.data.data;
+        });
+
+        $scope.getFormattedDate = function (d) {
+            return d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
+        };
+
+        $scope.login = function () {
+            if($scope.formFillStartTime){
+                var delta = (new Date()) - $scope.formFillStartTime;
+                console.log(delta);
+            }
+
+            var data = {username: $scope.username, password: $scope.password};
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            $http.post('/login', data, config)
+                .then(
+                    function (response) {
+                        // success callback
+                        $scope.password = null;
+                        $scope.appState = 'report';
+                        console.log($scope.appState)
+                    },
+                    function (response) {
+                        // failure callback
+                        $scope.loginError = response.statusText;
+                    });
+        };
+
+        $scope.logout = function () {
+            $scope.username = '';
+            $scope.password = '';
+            $scope.IsUserFeelingsVisible = false;
+            $scope.userFeelings = null;
+            $scope.appState = 'login';
+        };
+
+        $scope.getHistory = function () {
+            $http.get("/feelings/" + $scope.username).then(function (response) {
+                $scope.userFeelings = response.data.data;
+                $scope.IsUserFeelingsVisible = true;
+            });
+        };
+
+        $scope.submit = function (feeling) {
+            var data = {username: $scope.username, feeling: feeling.name, value: feeling.value, createDate: new Date()};
+            var config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            $http.post('/state', data, config)
+                .then(
+                    function (response) {
+                        // success callback
+                        $scope.feelingPostedMessage = 'Feeling saved';
+                    },
+                    function (response) {
+                        // failure callback
+                        $scope.feelingPostedMessage = response.statusText;
+                    })
+                .then(() => {
+                    if ($scope.IsUserFeelingsVisible) {
+                        return $scope.getHistory($scope.username);
+                    }
+
+                })
+        };
+
+        $scope.showUserFeelingsData = function () {
+            return JSON.stringify($scope.userFeelings);
+        }
+
+        $scope.showTableData = function ($event) {
+            if ($event.altKey) {
+                alert($scope.showUserFeelingsData())
+            }
+            if ($event.ctrlKey) {
+            }
+            if ($event.shiftKey) {
+            }
+        }
+    });
+</script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <div ng-show="appState === 'login'">
+        <form name="frmLogin">
+            <p>UserName:  <input id="txtUserName" name="txtUserName" type="text"
+                                 ng-keydown="setFormFill()"
+                                 ng-model="username" required></p>
+            <p>Password: <input id="txtPassword" name="txtPassword" type="password" ng-model="password" required></p>
+
+            <div>
+                <button id="btnlogin" ng-click="login()"
+                        ng-disabled="!(frmLogin.txtUserName.$valid && frmLogin.txtPassword.$valid)">
+                    Login
+                </button>
+                <span style="color:red">{{loginError}}</span>
+            </div>
+        </form>
+    </div>
+
+    <div ng-show="appState === 'report'">
+        <form name="frmReport">
+            <div>
+                <button id="btnLogout" ng-click="logout()">Logout</button>
+            </div>
+            <div id="divWelcome">Welcome {{username}}</div>
+            <div>Right now I feel:
+                <select name="slctFeeling" ng-model="selectedFeeling" ng-options="x.name for x in feelings"
+                        ng-click="feelingPostedMessage=''" required>
+                </select>
+                <span style="color:blue">{{feelingPostedMessage}}</span>
+            </div>
+            <div>
+                <button ng-click="submit(selectedFeeling)" ng-disabled="!frmReport.slctFeeling.$valid">Submit</button>
+            </div>
+            <hr>
+            <div>
+                <button id="bthGetHistory" ng-click="getHistory()">Get Feeling History</button>
+            </div>
+            <div id="divFeelingData" ng-show="false">{{showUserFeelingsData()}}</div>
+            <div ng-click="showTableData($event)">
+                <hr/>
+                <table id="tblFeelings" cellpadding="0" cellspacing="0" ng-show="IsUserFeelingsVisible">
+                    <tr>
+                        <th>Feeling</th>
+                        <th>Value</th>
+                        <th>Date</th>
+                    </tr>
+                    <tbody ng-repeat="m in userFeelings">
+                    <tr>
+                        <td>{{m.feeling}}</td>
+                        <td>{{m.value}}</td>
+                        <td>{{m.createDate | date:'M-dd-yyyy H:mm'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
