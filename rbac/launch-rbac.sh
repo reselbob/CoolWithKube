@@ -22,5 +22,16 @@ kubectl run -n test nginx --image=nginx --replicas=2
 kubectl config use-context MAGIC_USER
 kubectl get pod -n test #You'll only see the ones in the name space
 
+#become admin again
+kubectl config use-context minikube
+kubectl apply -f ./manifests/admin-role.yaml #the role
+kubectl apply -f ./manifests/admin-rolebinding.yaml #role binding
+
+
+#become MAGIC_USER@minikube
+kubectl config use-context MAGIC_USER@minikube
+kubectl run -n test magicstuff --image=nginx --replicas=5
+
+
 
 

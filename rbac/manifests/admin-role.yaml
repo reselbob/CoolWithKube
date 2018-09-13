@@ -1,0 +1,10 @@
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  namespace: test
+  name: ns-admin
+rules:
+  - apiGroups: ["*"] #evil wild card character, ["*"]
+    resources: ["*"] #evil wild card character, ["*"]
+    verbs: ["*"] #evil wild card character, ["*"]

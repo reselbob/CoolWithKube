@@ -1,0 +1,15 @@
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  namespace: test
+  name: ns-test-admin
+subjects:
+  - kind: User
+    name: MAGIC_USER
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: ns-admin
+  apiGroup: rbac.authorization.k8s.io
+
