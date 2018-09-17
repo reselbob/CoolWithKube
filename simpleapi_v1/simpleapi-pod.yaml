@@ -8,6 +8,10 @@ metadata:
 spec:
   containers:
     - name: simpleapi
-      image: simpleapi:v1
+      image: "simpleapi:v1"
+      imagePullPolicy: Never
+      env:
+        - name: CURRENT_VERSION
+          value: v1
       ports:
         - containerPort: 8113
