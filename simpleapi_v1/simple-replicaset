@@ -21,3 +21,4 @@ spec:
              env:
                - name: CURRENT_EXERCISE
                  value: replicaset
+#to check in out type, kubectl exec -it myapp-pod -n default env
