@@ -3,6 +3,9 @@ docker rm $(docker ps -a -q)
 # Delete all images
 docker rmi $(docker images -q)
 
+#exec a bash in a container
+kubectl exec -it <CONTAINER_NAME>-- /bin/bash
+
 #list stuff
 kubectl get pods
 kubectl get deployments
