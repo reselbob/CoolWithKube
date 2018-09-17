@@ -4,7 +4,11 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 
 #exec a bash in a container
-kubectl exec -it <CONTAINER_NAME>-- /bin/bash
+kubectl exec -it <CONTAINER_NAME>-- /bin/bashkubectl api-versions
+
+#get a list of API supported by current version of kuberneteskubectl api-versions
+kubectl api-versions
+
 
 #list stuff
 kubectl get pods
