@@ -1,15 +1,15 @@
 ---
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   namespace: test
-  name: ns-test-admin
+  name: MAGIC-USER-reads-all-pods
 subjects:
   - kind: User
     name: MAGIC_USER
     apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
-  name: ns-admin
+  name: all-pod-access
   apiGroup: rbac.authorization.k8s.io
 
