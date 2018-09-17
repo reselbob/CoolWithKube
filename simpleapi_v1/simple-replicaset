@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+    name: simple-replicaset
+spec:
+    replicas: 4
+    selector:
+       matchLabels:
+          app: simpleapp
+    template:
+       metadata:
+          labels:
+             app: simpleapp
+             env: test
+       spec:
+         containers:
+           - name: simple-container
+             image: busybox
+             command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+             env:
+               - name: CURRENT_EXERCISE
+                 value: replicaset
