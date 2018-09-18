@@ -3,9 +3,11 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: feelingtrackeringress
+  annotations:
+    http.port: "443"
 spec:
   backend:
-    serviceName: feelingtracker
+    serviceName: /feelingtracker
     servicePort: 3000
   rules:
   - host:
