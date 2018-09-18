@@ -6,14 +6,11 @@ metadata:
   annotations:
     http.port: "443"
 spec:
-  backend:
-    serviceName: /feelingtracker
-    servicePort: 3000
   rules:
   - host:
     http:
       paths:
-      - path: /feelingtracker
+      - path: /
         backend:
           serviceName: feelingtracker
           servicePort: 3000
