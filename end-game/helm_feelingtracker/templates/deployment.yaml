@@ -14,7 +14,7 @@ spec:
         app: feelingtracker
     spec:
       containers:
-        - image: "feelingTracker:v1"
+        - image: "feelingtracker:v1"
           name: feelingtracker
           ports:
             - containerPort: 3000
