@@ -2,11 +2,15 @@
 const _ = require('lodash');
 const expect = require('chai').expect;
 const describe = require('mocha').describe;
+const before = require('mocha').before;
 const it = require('mocha').it;
 
 const state = require('../data/state');
 
+
 describe('Data Tests: ', () => {
+    before(() => { state.initSync()});
+
     it('Can write state', function (done) {
         const obj = {name: "glad", value:10, username:"topDoggy"};
         state.save(obj)

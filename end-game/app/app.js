@@ -5,11 +5,9 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
-const PORT = process.env.FEELING_PORT || '3000';
-
-const data = require('./data/feelings');
 
 
+const state = require('./data/state');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,17 +16,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const routes = require('./routes/routes.js')(app);
 app.use(express.static(path.join(__dirname, 'static')));
 
+//set the feelings values
+const data = require('./data/feelings');
+
 // make the feelings data global as an environment variable
 process.env['feelingsData'] = JSON.stringify(data);
 
 //initialize the states.json
-const statesFileSpec = path.join(__dirname, 'data') + '/states.json';
-if(! fs.existsSync(statesFileSpec)){
-    fs.writeFileSync(statesFileSpec, '[]');
-}
+state.initSync();
 
+const port = process.env.FEELING_TRACKER_PORT || 3000;
 
-const server = app.listen(PORT, function () {
+const server = app.listen(port, function () {
     console.log('Listening on port %s...', server.address().port);
 });
 

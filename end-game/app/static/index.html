@@ -17,11 +17,6 @@
     app.controller('myCtrl', function ($scope, $http) {
         $scope.appState = 'login';
         $scope.feeling = '';
-        $scope.formFillStartTime;
-
-        $scope.setFormFill = function(){
-            if(!$scope.formFillStartTime)$scope.formFillStartTime = new Date();
-        };
 
         $http.get("/feelings").then(function (response) {
             $scope.feelings = response.data.data;
@@ -32,11 +27,6 @@
         };
 
         $scope.login = function () {
-            if($scope.formFillStartTime){
-                var delta = (new Date()) - $scope.formFillStartTime;
-                console.log(delta);
-            }
-
             var data = {username: $scope.username, password: $scope.password};
             var config = {
                 headers: {
@@ -119,9 +109,7 @@
 <div ng-app="myApp" ng-controller="myCtrl">
     <div ng-show="appState === 'login'">
         <form name="frmLogin">
-            <p>UserName:  <input id="txtUserName" name="txtUserName" type="text"
-                                 ng-keydown="setFormFill()"
-                                 ng-model="username" required></p>
+            <p>UserName: <input id="txtUserName" name="txtUserName" type="text" ng-model="username" required></p>
             <p>Password: <input id="txtPassword" name="txtPassword" type="password" ng-model="password" required></p>
 
             <div>
