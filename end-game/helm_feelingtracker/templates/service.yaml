@@ -1,0 +1,14 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: feelingtracker
+spec:
+  selector:
+    app: feelingtracker
+  ports:
+    - name: main
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+

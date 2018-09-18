@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: feelingtracker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: feelingtracker
+  template:
+    metadata:
+      labels:
+        app: feelingtracker
+    spec:
+      containers:
+        - image: "feelingTracker:v1"
+          name: feelingtracker
+          ports:
+            - containerPort: 3000

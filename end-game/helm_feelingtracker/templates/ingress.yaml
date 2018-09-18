@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: feelingtrackeringress
+spec:
+  backend:
+    serviceName: feelingtracker
+    servicePort: 3000
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /feelingtracker
+        backend:
+          serviceName: feelingtracker
+          servicePort: 3000
