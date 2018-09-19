@@ -28,19 +28,19 @@ aws iam create-access-key --user-name kops
 #register a DNS, dnsname.xx
 
 #create a bucket to hold cluster config data
-aws s3 mb s3://clusters.your.dnsname.xx
+aws s3 mb s3://clusters.domain.xx-state
 
 #store state in env var
-export KOPS_STATE_STORE=s3://clusters.your.dnsname.xx
+export KOPS_STATE_STORE=s3://clusters.domain.xx-state
 
 #config the cluster
-kops create cluster --zones=us-west-1a useast1.your.dnsname.xx
+kops create cluster --zones=us-west-1a uswest1.domain.xx
 
 #physically create it
-kops update cluster useast1.your.dnsname.xx --yes
+kops update cluster uswest1.domain.xx --yes
 
 #delete
-kops delete cluster useast1.your.dnsname.xx --yes
+kops delete cluster uswest1.domain.xx --yes
 
 #Dashboard url templage
 https://api.<custername>/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
