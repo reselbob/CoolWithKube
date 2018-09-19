@@ -24,7 +24,6 @@ aws iam add-user-to-group --user-name kops --group-name kops
 #Create the access key for this user
 aws iam create-access-key --user-name kops
 
-
 #register a DNS, dnsname.xx
 
 #create a bucket to hold cluster config data
@@ -34,7 +33,7 @@ aws s3 mb s3://clusters.domain.xx-state
 export KOPS_STATE_STORE=s3://clusters.domain.xx-state
 
 #config the cluster
-kops create cluster --zones=us-west-1a uswest1.domain.xx
+kops create cluster --zones=us-west-1a --master-size="t2.micro" --node-size="t2.micro" --node-count="3" uswest1.domain.xx
 
 #physically create it
 kops update cluster uswest1.domain.xx --yes
