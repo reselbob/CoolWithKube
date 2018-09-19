@@ -6,9 +6,10 @@ metadata:
 spec:
   selector:
     app: feelingtracker
+  type: "LoadBalancer"
   ports:
     - name: main
       protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000
 
