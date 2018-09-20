@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: feelingtracker
-  type: "LoadBalancer"
+  type: NodePort
   ports:
     - name: main
       protocol: TCP
