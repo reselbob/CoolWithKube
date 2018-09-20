@@ -5,7 +5,7 @@ metadata:
   labels:
     test: liveness
     app: unhealthypod
-  name: liveness-exec
+  name: unhealthypod
 spec:
   containers:
   - name: unhealthypod
