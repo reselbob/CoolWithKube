@@ -2,12 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    app: unhealthypod
     test: liveness
-  name: unhealthypod
+  name: liveness-exec
 spec:
   containers:
-  - name: unhealthypod
+  - name: liveness
     image: busybox
     args:
     - /bin/sh
@@ -20,4 +19,3 @@ spec:
         - /tmp/healthy
       initialDelaySeconds: 5
       periodSeconds: 5
-#to check in out type, kubectl exec -it simplepod -n default env
