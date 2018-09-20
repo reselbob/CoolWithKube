@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: simple-pod
+  name: simplepod
   labels:
-    app: simpleapp
+    app: simplepod
 spec:
   containers:
-  - name: simple-container
+  - name: simplepod
     image: busybox
     command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
     env:
       - name: CURRENT_EXERCISE_VERSION
         value: v1
-#to check in out type, kubectl exec -it myapp-pod -n default env
+#to check in out type, kubectl exec -it simplepod -n default env

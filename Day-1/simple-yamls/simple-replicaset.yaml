@@ -15,10 +15,10 @@ spec:
              env: test
        spec:
          containers:
-           - name: simple-container
+           - name: simplepod
              image: busybox
-             command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+             command: ['sh', '-c', 'echo Hello Kubernetes from SimplePod! && sleep 3600']
              env:
                - name: CURRENT_EXERCISE
                  value: replicaset
-#to check in out type, kubectl exec -it myapp-pod -n default env
+#to check in out type, kubectl exec -it simplepod -n default env
