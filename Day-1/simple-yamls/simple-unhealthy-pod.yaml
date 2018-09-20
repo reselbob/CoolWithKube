@@ -10,6 +10,9 @@ spec:
   containers:
   - name: unhealthypod
     image: busybox
+    ports:
+      - name: app
+        containerPort: 8080
     args:
     - /bin/sh
     - -c
