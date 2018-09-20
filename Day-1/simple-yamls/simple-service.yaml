@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simlple-service
+spec:
+  selector:
+    app: simplepod
+  ports:
+  - name: http
+    port: 80
+    targetPort: app
+  - name: https
+    port: 443
+    targetPort: app
+  type: NodePort
