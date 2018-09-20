@@ -4,7 +4,9 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 
 #exec a bash in a container
-kubectl exec -it <CONTAINER_NAME>-- /bin/bash
+kubectl exec -it <CONTAINER_NAME> -- /bin/bash
+kubectl exec -it <CONTAINER_NAME> -- env
+kubectl exec -it <CONTAINER_NAME> -- ls
 
 #get a list of API supported by current version of kuberneteskubectl api-versions
 kubectl api-versions
@@ -16,3 +18,18 @@ kubectl get deployments
 kubectl get services
 kubectl get persistentvolumes
 kubectl get persistentvolumeclaims
+
+# Scale a replicaset named 'foo' to 3.
+kubectl scale --replicas=3 rs/foo
+  
+# Scale a resource identified by type and name specified in "foo.yaml" to 3.
+kubectl scale --replicas=3 -f foo.yaml
+  
+# If the deployment named mysql's current size is 2, scale mysql to 3.
+kubectl scale --current-replicas=2 --replicas=3 deployment/mysql
+  
+ # Scale multiple replication controllers.
+kubectl scale --replicas=5 rc/foo rc/bar rc/baz
+  
+# Scale statefulset named 'web' to 3.
+kubectl scale --replicas=3 statefulset/web
