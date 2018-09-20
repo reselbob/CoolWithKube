@@ -1,10 +1,10 @@
----
 apiVersion: v1
 kind: Pod
 metadata:
-  name: unhealthypod
   labels:
     app: unhealthypod
+    test: liveness
+  name: unhealthypod
 spec:
   containers:
   - name: unhealthypod
