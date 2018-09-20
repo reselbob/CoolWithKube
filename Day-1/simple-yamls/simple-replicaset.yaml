@@ -21,4 +21,5 @@ spec:
              env:
                - name: CURRENT_EXERCISE
                  value: replicaset
-#to check in out type, kubectl exec -it simplepod -n default env
+#to check in out type, kubectl get replicaset
+# try to delete a pod, kubectl get pod
