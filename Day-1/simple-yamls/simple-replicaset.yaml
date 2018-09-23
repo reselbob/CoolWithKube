@@ -4,7 +4,7 @@ kind: ReplicaSet
 metadata:
     name: simple-replicaset
 spec:
-    replicas: 15
+    replicas: 3
     selector:
        matchLabels:
           app: simpleapp
