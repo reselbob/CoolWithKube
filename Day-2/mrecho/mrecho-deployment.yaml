@@ -33,7 +33,7 @@ spec:
                   name: mrecho
           image: "mrecho:v1"
           imagePullPolicy: Never
-          name: simpleapi
+          name: mrecho
           ports:
             -
               containerPort: 8115
