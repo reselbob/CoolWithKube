@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stickyreaderwriter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stickyreaderwriter
+  template:
+    metadata:
+      labels:
+        app: stickyreaderwriter
+    spec:
+      containers:
+        - image: "stickyreaderwriter:v1"
+          imagePullPolicy: Never
+          name: stickyreaderwriter
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+          ports:
+            -
+              containerPort: 8112
