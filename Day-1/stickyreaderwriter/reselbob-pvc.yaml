@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: sticky-pv-claim
+  name: reselbob-pv-claim
 spec:
   storageClassName: manual
   accessModes:
