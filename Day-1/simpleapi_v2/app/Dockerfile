@@ -1,12 +1,10 @@
 FROM node:8
 
 # Create app directory
-#WORKDIR /usr/src/app
-
-# Install app dependencies
+WORKDIR /usr/src/app
 
 # Bundle app source
-#COPY .. /usr/src/app
+COPY .. /usr/src/app
 COPY . .
 RUN npm install
 

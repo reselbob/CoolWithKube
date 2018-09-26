@@ -1,7 +1,5 @@
 FROM node:8
 
-
-
 # Install app dependencies
 
 # Bundle app source
