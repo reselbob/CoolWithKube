@@ -32,13 +32,11 @@ aws s3 mb s3://clusters.domain.xx-state
 #store state in env var
 export KOPS_STATE_STORE=s3://clusters.domain.xx-state
 
-#create a key
-kops create secret --name uswest1.domain.xx sshpublickey admin -i ~/.ssh/id_rsa.pub
-
-
-
 #config the cluster
 kops create cluster --zones=us-west-1a uswest1.domain.xx --master-size="t2.micro" --node-size="t2.micro" --node-count="3"
+
+#create a key
+kops create secret --name uswest1.domain.xx sshpublickey admin -i ~/.ssh/id_rsa.pub
 
 #physically create it
 kops update cluster uswest1.domain.xx --yes
