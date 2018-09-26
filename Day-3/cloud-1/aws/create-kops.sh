@@ -35,7 +35,9 @@ export KOPS_STATE_STORE=s3://clusters.domain.xx-state
 #config the cluster
 kops create cluster --zones=us-west-1a uswest1.domain.xx --master-size="t2.micro" --node-size="t2.micro" --node-count="3"
 
-#create a key
+(ssh-keygen -t rsa -b 2048) #if you need to create the ssh key
+
+#create a secret based on the key
 kops create secret --name uswest1.domain.xx sshpublickey admin -i ~/.ssh/id_rsa.pub
 
 #physically create it
