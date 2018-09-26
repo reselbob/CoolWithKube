@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: simpledeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simpledeployment
+  template:
+    metadata:
+      labels:
+        app: simpledeployment
+    spec:
+      containers:
+        - name: simplepod
+          image: busybox
+          ports:
+            - name: app
+              containerPort: 8080
+          command: ['sh', '-c', 'echo Hello Kubernetes as a Simple Deployment! && sleep 3600']
+          env:
+            - name: CURRENT_EXERCISE_VERSION
+              value: v1
+#to check in out type, kubectl exec -it simplepod -n default env
