@@ -14,7 +14,7 @@ spec:
         app: feelingtracker
     spec:
       containers:
-        - image: "feelingtracker:v1"
+        - image: "reselbob/feelingtracker:v1"
           name: feelingtracker
           ports:
             - containerPort: 3000
