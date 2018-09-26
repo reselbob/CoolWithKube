@@ -1,9 +1,12 @@
 const http = require('http');
 const fs = require('fs');
 let i = 0;
+
+
+
 const handleRequest = function(request, response) {
     const fname = '/mydata/test_file.txt';
-    const str = i++ + ' at ' + new Date() + '\n';
+    const str = `${i} as ${new Date()} for processId: ${process.pid} \n`
     fs.appendFileSync(fname, str, function (err) {
         if (err) {
             return console.log(err);
