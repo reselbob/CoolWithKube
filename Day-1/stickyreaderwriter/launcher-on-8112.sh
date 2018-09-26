@@ -11,13 +11,37 @@ kubectl apply -f sticky-pvc.yaml
 eval $(minikube docker-env)build
 #build the Docker image
 docker build -t stickyreaderwriter:v1 .
-#create the pod
-#kubectl apply -f sticky-pod.yaml
 #create the deployment
-kubectl run stickyreaderwriter --image=stickyreaderwriter:v1 --port=8112 --image-pull-policy=Never --replicas=3
-#create the service
-kubectl expose deployment stickyreaderwriter --type=NodePort
+kubectl apply -f sticky-deployment.yaml
+
+
 #get into the pod/container
-kubectl exec -it stickyreaderwriter -- /bin/bash
-#in the container
+kubectl exec -it stickyreaderwriter_A_GUID -- /bin/bash
 curl localhost:8112
+# get out
+exit
+
+#Go into Minikube and take a look the volume
+minikube ssh
+ls /mnt/data
+
+#boost the replicas by editing the YAML
+kubectl edit deployments/stickyreaderwriter
+#search for, replicas: 1 under 'spec' and change to, replicas: 4
+
+#wait while the pods generate then pick a new pod and go in
+kubectl get pod
+kubectl exec -it stickyreaderwriter_A_GUID -- /bin/bash
+#generate some data
+curl localhost:8112
+#leave
+exit
+
+#add an independent pod
+kubectl apply -f sticky-pod.yaml
+
+# go in to the newly added pod
+kubectl exec -it stickyreaderwriter -- /bin/bash
+#generate some data
+curl localhost:8112
+
