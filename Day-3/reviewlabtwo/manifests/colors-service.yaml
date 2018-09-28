@@ -1,0 +1,41 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: red
+spec:
+  selector:
+    app: red
+  ports:
+    - name: main
+      protocol: TCP
+      port: 8122
+      targetPort: 8122
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: green
+spec:
+  selector:
+    app: green
+  ports:
+    - name: main
+      protocol: TCP
+      port: 8122
+      targetPort: 8122
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: yellow
+spec:
+  selector:
+    app: yellow
+  ports:
+    - name: main
+      protocol: TCP
+      port: 8122
+      targetPort: 8122

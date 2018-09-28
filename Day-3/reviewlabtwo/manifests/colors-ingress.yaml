@@ -1,0 +1,43 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: stooges-ingress
+spec:
+  rules:
+  - host: colors.all
+    http:
+      paths:
+      - path: /red
+        backend:
+          serviceName: red
+          servicePort: 8122
+      - path: /green
+        backend:
+          serviceName: green
+          servicePort: 8122
+      - path: /yellow
+        backend:
+          serviceName: yellow
+          servicePort: 8122
+  - host: red.clr
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: red
+          servicePort: 8122
+  - host: green.clr
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: green
+          servicePort: 8122
+  - host: yellow.clr
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: yellow
+          servicePort: 8122

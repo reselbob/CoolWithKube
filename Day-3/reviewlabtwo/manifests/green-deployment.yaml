@@ -1,0 +1,27 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: green
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      containers:
+        - image: "colors:v1"
+          imagePullPolicy: Never
+          name: green
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+          - name: COLOR
+            value: green
+          ports:
+            -
+              containerPort: 8122
