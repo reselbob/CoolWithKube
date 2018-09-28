@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: stooges-ingress
+  name: colors-ingress
 spec:
   rules:
   - host: colors.all
