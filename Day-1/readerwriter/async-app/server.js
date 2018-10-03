@@ -8,7 +8,7 @@ let i = 0;
 const handleRequest = function (request, response) {
     const res = response;
     const fname = 'test_file.txt';
-    const str = i++ + ' at ' + new Date() + '\n';
+    const str = i++ + ' at ' + new Date() + ' running async\n';
     appendFileAsync(fname, str)
         .then((result) => {
             return readFileAsync(fname, {encoding: 'utf8'});
