@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+#uinstall the  dashboard
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+
+#start the dashboard
+kubectl proxy
+
 # Create the service account in the current namespace
 # (we assume default)
 kubectl create serviceaccount my-dashboard-sa
