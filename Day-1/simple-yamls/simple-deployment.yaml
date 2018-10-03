@@ -23,4 +23,4 @@ spec:
           env:
             - name: CURRENT_EXERCISE_VERSION
               value: v1
-#to check in out type, kubectl exec -it simplepod_A_GUID -n default env
+#to check it out type, kubectl exec -it simplepod_A_GUID -n default env
