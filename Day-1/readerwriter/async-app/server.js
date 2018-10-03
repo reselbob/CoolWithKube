@@ -7,8 +7,10 @@ let i = 0;
 //Create an Async version of the request handler. It really is the right thing to do.
 const handleRequest = function (request, response) {
     const res = response;
+    const version = process.env.CURRENT_VERSION || 'UNKNOWN';
     const fname = 'test_file.txt';
-    const str = i++ + ' at ' + new Date() + ' running async\n';
+    const str = `${i++} at ${new Date()} running async on version ${version}\n`;
+    //const str = i++ + ' at ' + new Date() + ' running async\n';
     appendFileAsync(fname, str)
         .then((result) => {
             return readFileAsync(fname, {encoding: 'utf8'});
