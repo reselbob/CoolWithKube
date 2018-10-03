@@ -18,4 +18,5 @@ kubectl get secrets
 kubectl describe secret my-dashboard-sa-token-xxxxx
 
 #Dashboard URL
-# http://<loadbalancerIp>:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+#https://api.<custername>/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+
