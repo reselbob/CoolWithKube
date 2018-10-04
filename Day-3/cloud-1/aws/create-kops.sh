@@ -46,8 +46,13 @@ kops create secret --name uswest1.${KOPPER_DNS_NAME} sshpublickey admin -i ~/.ss
 #physically create it
 kops update cluster uswest1.${KOPPER_DNS_NAME} --yes
 
-#delete
-kops delete cluster uswest1.${KOPPER_DNS_NAME} --yes
+#apply the dashboard
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 
 #Dashboard url templage
 https://api.<custername>/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
+
+#delete
+kops delete cluster uswest1.${KOPPER_DNS_NAME} --yes
+
+
