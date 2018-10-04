@@ -45,3 +45,6 @@ kubectl exec -it stickyreaderwriter -- /bin/bash
 #generate some data
 curl localhost:8112
 
+#expose the service
+kubectl expose deployment stickyreaderwriter --type=NodePort
+
