@@ -11,7 +11,6 @@ kubectl exec -it <CONTAINER_NAME> -- ls
 #get a list of API supported by current version of kuberneteskubectl api-versions
 kubectl api-versions
 
-
 #list stuff
 kubectl get pods
 kubectl get deployments
@@ -33,3 +32,6 @@ kubectl scale --replicas=5 rc/foo rc/bar rc/baz
   
 # Scale statefulset named 'web' to 3.
 kubectl scale --replicas=3 statefulset/web
+
+#Start minikube using the KVM driver
+minikube start --vm-driver kvm2
