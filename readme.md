@@ -7,3 +7,6 @@ Accompanying study guide can be found [here](https://docs.google.com/presentatio
 (Study guide is subject to change.)
 
 http://abbf634a0ca7d11e8a4b406412bb5db3-1020189026.us-west-1.elb.amazonaws.com/
+
+
+minikube start --vm-driver vmwarefusion
