@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reviewlabone-service
+spec:
+  selector:
+    app: reviewlabone
+  ports:
+  - name: http
+    port: 80
+    targetPort: app
+  - name: https
+    port: 443
+    targetPort: app
+  type: NodePort
