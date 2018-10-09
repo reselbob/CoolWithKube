@@ -7,11 +7,12 @@ spec:
   tls:
     - secretName: example-com-tls
       hosts:
-        example.com
+        - example.com
   rules:
     - host: example.com
       http:
         paths:
+        - path: /
           backend:
             serviceName: nginx
             servicePort: 80
