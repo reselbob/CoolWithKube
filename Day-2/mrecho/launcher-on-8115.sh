@@ -4,7 +4,7 @@ eval $(minikube docker-env)build
 #build the Docker image
 docker build -t mrecho:v1 .
 #create the deployment
-kubectl run mrecho --image=mrecho:v1 --port=8115 --image-pull-policy=Never
+kubectl apply -f mrecho-deployment.yaml
 #fire up the deployment
 kubectl expose deployment mrecho --type=NodePort
 #try to load the service
