@@ -18,3 +18,6 @@ docker build -t colors:v1 .
 
 
 echo "$(minikube ip) colors.all red.clr green.clr yellow.clr" | sudo tee -a /etc/hosts
+
+#Turn on the minikube intgress
+minikube addons enable ingress
