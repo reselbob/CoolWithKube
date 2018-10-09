@@ -27,7 +27,7 @@ const handleRequest = function(request, response) {
         });
     });
     const vers = process.env.CURRENT_VERSION || 'Unknown Version';
-    const author = process.env.AUTHOR || 'Unknown Author'
+    const author = process.env.AUTHOR || 'Unknown Author';
     response.writeHead(200);
     response.end(JSON.stringify({ProcessId: process.pid, Author: author, APIVersion: vers, createTime: new Date(), interfaces}));
 }

@@ -26,7 +26,7 @@ spec:
                   key: APP_NAME
                   name: mrecho
             -
-              name: ECHO
+              name: APP_ECHO
               valueFrom:
                 configMapKeyRef:
                   key: ECHO
