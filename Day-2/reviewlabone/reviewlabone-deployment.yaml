@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: reviewlabone
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reviewlabone
+  template:
+    metadata:
+      labels:
+        app: reviewlabone
+    spec:
+      containers:
+        - name: reviewlabone
+          image: reviewlabone:v1
+          ports:
+            - name: app
+              containerPort: 8121
+          env:
+            - name: CURRENT_VERSION
+              value: v1
+            - name: AUTHOR
+              value: VMROCKETS
