@@ -26,9 +26,10 @@ const handleRequest = function(request, response) {
             ++alias;
         });
     });
-    const vers = process.env.CURRENT_VERSION || 'Unknown';
+    const vers = process.env.CURRENT_VERSION || 'Unknown Version';
+    const author = process.env.AUTHOR || 'Unknown Author'
     response.writeHead(200);
-    response.end(JSON.stringify({ProcessId: process.pid, APIVersion: vers, createTime: new Date(), interfaces}));
+    response.end(JSON.stringify({ProcessId: process.pid, Author: author, APIVersion: vers, createTime: new Date(), interfaces}));
 }
 const server = http.createServer(handleRequest);
 server.listen(8121, ()=>{
