@@ -8,6 +8,7 @@ spec:
     - host: example.com
       http:
         paths:
+        - path: /
           backend:
             serviceName: nginx
             servicePort: 80
