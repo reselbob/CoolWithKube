@@ -12,3 +12,7 @@ kubectl expose deployment moe --target-port=8130 --type=NodePort
 kubectl expose deployment larry --target-port=8130 --type=NodePort
 kubectl expose deployment curly --target-port=8130 --type=NodePort
 
+#Turn on the minikube intgress
+minikube addons enable ingress
+
+
