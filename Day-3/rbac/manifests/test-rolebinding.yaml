@@ -8,6 +8,9 @@ subjects:
   - kind: Group
     name: devs
     apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: dicktracy #name is case sensitive
+    apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
   name: pod-access
