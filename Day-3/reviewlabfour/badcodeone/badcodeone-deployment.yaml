@@ -10,7 +10,6 @@ spec:
       app: badcodeone
   template:
     metadata:
-      namespace: badactor
       labels:
         app: badcodeone
     spec:
