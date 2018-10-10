@@ -8,7 +8,7 @@ The challenge at hand is to findout what's wrong with the project, and then fix 
 
 Here are the steps to take to start out:
 
-First, make sure you've told kubernetes to local minikube docker environment to get Docker images. Thus, the command:
+First, make sure you've told kubernetes to inspect the local minikube docker environment to get Docker images. Thus, the command:
 
 `eval $(minikube docker-env)build`
 
