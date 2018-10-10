@@ -5,12 +5,12 @@ metadata:
   name: badcodeone
 spec:
   replicas: 3
+  namespace: badactor
   selector:
     matchLabels:
       app: badcodeone
   template:
     metadata:
-      namespace: badactor
       labels:
         app: badcodeone
     spec:
