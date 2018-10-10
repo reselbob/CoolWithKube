@@ -8,7 +8,7 @@ export MAGIC_USER=dicktracy
 #generate an ssl key
 openssl genrsa -out ${MAGIC_USER}.key 2048
 #request a key
-openssl req -new -key ${MAGIC_USER}.key -out /tmp/${MAGIC_USER}.csr -subj "/CN=${MAGIC_USER}/O=devs/O=tech-lead"
+openssl req -new -key ${MAGIC_USER}.key -out /tmp/${MAGIC_USER}.csr -subj "/CN=${MAGIC_USER} /O=devs /O=tech-lead"
 
 #---As Admin---
 #create a key
