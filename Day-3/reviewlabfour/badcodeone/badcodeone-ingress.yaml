@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: badcodeone-ingress
+spec:
+  backend:
+    serviceName: badcodeone
+    servicePort: 8311
+  rules:
+  - host: badcode.one
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: badcodeone
+          servicePort: 8311

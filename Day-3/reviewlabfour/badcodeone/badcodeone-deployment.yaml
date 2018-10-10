@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: badcodeone
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: badcodeone
+  template:
+    metadata:
+      namespace: badactor
+      labels:
+        app: badcodeone
+    spec:
+      containers:
+        - image: "badcodeone:v1"
+          imagePullPolicy: Never
+          name: badcodeone
+          env:
+          - name: CURRENT_VERSION
+            value: v1
+          ports:
+            -
+              containerPort: 8311
