@@ -18,7 +18,7 @@ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/IAMFullAccess -
 aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess --group-name kops
 
 export KOPPER_NAME=YOUR_NAME_kop
-export KOPPER_DNS_NAME=kopper.k8s.local
+export KOPPER_DNS_NAME=YOUR_NAME.vm.k8s.local
 
 aws iam create-user --user-name ${KOPPER_NAME} #kops
 
