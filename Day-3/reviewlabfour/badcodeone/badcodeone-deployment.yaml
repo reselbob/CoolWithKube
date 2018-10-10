@@ -5,7 +5,6 @@ metadata:
 spec:
   replicas: 3
   name: badcodeone
-  namespace: badactor
   selector:
     matchLabels:
       app: badcodeone
@@ -14,6 +13,7 @@ spec:
       labels:
         app: badcodeone
     spec:
+      namespace: badactor
       containers:
         - image: "badcodeone:v1"
           imagePullPolicy: Never
