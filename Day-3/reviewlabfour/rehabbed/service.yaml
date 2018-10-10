@@ -1,0 +1,14 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: badcodeone
+  namespace: badactor
+spec:
+  selector:
+    app: badcodeone
+  ports:
+    - name: main
+      protocol: TCP
+      port: 8311
+      targetPort: 8311
