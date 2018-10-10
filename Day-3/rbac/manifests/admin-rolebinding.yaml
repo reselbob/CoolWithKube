@@ -9,7 +9,7 @@ subjects:
     name: MAGIC_USER
     apiGroup: rbac.authorization.k8s.io
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: all-pod-access
   apiGroup: rbac.authorization.k8s.io
 
