@@ -10,10 +10,10 @@ spec:
       app: badcodeone
   template:
     metadata:
+      namespace: badactor
       labels:
         app: badcodeone
     spec:
-      namespace: badactor
       containers:
         - image: "badcodeone:v1"
           imagePullPolicy: Never
