@@ -2,7 +2,7 @@
 #use the minikube Docker daemon
 eval $(minikube docker-env)build
 #build the Docker image
-docker build -t badcodeone:v1
+docker build -t badcodeone:v1 .
 
 echo "$(minikube ip) badcode.one" | sudo tee -a /etc/hosts
 
