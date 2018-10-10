@@ -2,9 +2,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  name: badcodeone
+  namespace: badactor
 spec:
   replicas: 3
-  name: badcodeone
   selector:
     matchLabels:
       app: badcodeone
