@@ -35,3 +35,6 @@ kubectl scale --replicas=3 statefulset/web
 
 #Start minikube using the KVM driver
 minikube start --vm-driver kvm2
+
+# Start minikubeiwth the VMWare Fusion Driver
+minikube start --vm-driver vmwarefusion
