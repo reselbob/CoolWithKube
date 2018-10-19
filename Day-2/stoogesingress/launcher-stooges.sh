@@ -2,8 +2,13 @@
 #use the minikube Docker daemon
 eval $(minikube docker-env)build
 #build the Docker image
+cd ./pods/moe
 docker build -t moe:v1 .
+
+cd ../../pods/larry
 docker build -t larry:v1 .
+
+cd ../../pods/curly
 docker build -t curly:v1 .
 
 # Do the deployments
