@@ -13,7 +13,7 @@ sudo systemctl enable docker
 
 #Bind to the kuberntest apt-get repo
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-echo “deb http://apt.kubernetes.io/ kubernetes-xenial main” > /etc/apt/sources.list.d/kubernetes.list
+echo deb http://apt.kubernetes.io/ kubernetes-xenial main > /etc/apt/sources.list.d/kubernetes.list
 
 #update again
 sudo apt-get update
