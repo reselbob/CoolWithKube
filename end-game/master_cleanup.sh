@@ -5,3 +5,5 @@ sudo rm -f /home/ubuntu/.kube/config
 sudo rm -rf  /var/lib/etcd/member/snap
 sudo rm -rf  /var/lib/etcd/member/wal
 
+sudo reboot
+
